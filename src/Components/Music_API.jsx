@@ -69,10 +69,9 @@ const Music_API = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      
       <div className="sticky top-0 z-10 bg-gray-900 p-4 border-b border-gray-800">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-2xl font-bold mb-4">Music Player</h1>
+          <h1 className="text-2xl font-bold mb-4">Stream Music</h1>
 
           <div className="flex">
             <input
@@ -96,7 +95,6 @@ const Music_API = () => {
         </div>
       </div>
 
-      
       <div className="max-w-6xl mx-auto p-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {songs.map((song, index) => {
@@ -151,18 +149,20 @@ const Music_API = () => {
                   </DropdownMenu>
                 </div>
 
-
                 {audioUrl && (
-                  <audio
-                    controls
-                    className="w-full mt-3"
-                    onPlay={() => setPlayingTrack(song.id)}
-                    onPause={() => setPlayingTrack(null)}
-                  >
-                    <source src={audioUrl} type="audio/mpeg" />
-                    Your browser does not support the audio element.
-                  </audio>
-                )}
+  <div className="mt-4">
+    <audio
+      controls
+      className="w-full"
+      onPlay={() => setPlayingTrack(song.id)}
+      onPause={() => setPlayingTrack(null)}
+    >
+      <source src={audioUrl} type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+)}
+
               </div>
             );
           })}
